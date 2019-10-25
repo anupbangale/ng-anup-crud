@@ -1,0 +1,36 @@
+ul {
+  list-style-type: none;
+  /* margin-left: 20px;
+  margin-right: 18px; */
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #f76436;
+}
+.txt-user {
+  color: white;
+  float: right;
+  padding-top: 14px;
+  padding-right: 5px;
+  text-shadow: 1px 1px #f76436;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}

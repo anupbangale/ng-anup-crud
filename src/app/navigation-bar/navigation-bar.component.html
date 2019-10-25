@@ -1,0 +1,39 @@
+<nav>
+  <div class="ui-g-12 ui-md-12 ui-lg-12 p-0 animated lightSpeedIn">
+    <ul>
+      
+      <li routerLinkActive="active">
+        <a routerLink="home">
+          <i class="fa fa-home" aria-hidden="true"></i>
+          &nbsp; Home</a>
+      </li>
+      <li *ngIf="authService.isLoggedIn()" routerLinkActive="active">
+        <a routerLink="/employee">
+          <i class="fa fa-users" aria-hidden="true"></i>
+          &nbsp; Employee</a>
+      </li>
+      <li *ngIf="authService.isLoggedIn()" routerLinkActive="active">
+        <a routerLink="/asset"><i class="fa fa-desktop" aria-hidden="true"></i>
+          &nbsp; Assets</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/about">
+          <i class="fa fa-hand-pointer-o" aria-hidden="true"></i>
+          &nbsp; About Us</a>
+      </li>
+      <li *ngIf="!authService.isLoggedIn()" routerLinkActive="active">
+        <a routerLink="/login">
+          <i class="fa fa-sign-in" aria-hidden="true"></i>
+          &nbsp; User Login</a>
+      </li>
+      <li *ngIf="authService.isLoggedIn()" style="float:right">
+        <a routerLink="" (click)="authService.logout()">
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+          &nbsp; Logout</a>
+      </li>
+      <span class="txt-user" *ngIf="authService.isLoggedIn()">
+        Welcome {{authService.currentUser.name}}
+      </span>
+    </ul>
+  </div>
+</nav>

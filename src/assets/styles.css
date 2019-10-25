@@ -1,0 +1,125 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.css';
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f2f5fc;
+
+  /* background-image: url("../assets/images/background1.jpg");
+  background-size: cover; */
+}
+.validation-red {
+  color: #e05b5b;
+}
+.txt-right {
+  float: right;
+}
+.pointer {
+  cursor: pointer;
+}
+
+.table-heading {
+  font-family: Georgia, Times, 'Times New Roman', serif;
+  color: #3555c6;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+.heading-text {
+  font-size: 3em;
+  font-family: 'Times New Roman', Times, serif;
+  color: #f76436;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+.ui-fieldset-legend {
+  color: #3699e5;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  width: 300px;
+  margin: 0;
+}
+.txt-center {
+  text-align: center;
+  /* display: inline-block; */
+}
+.img-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+/* margine classes */
+.m-t-5 {
+  margin-top: 5px;
+}
+.m-l-10 {
+  margin-left: 10px;
+}
+.m-l-20 {
+  margin-left: 20px;
+}
+.m-r-18 {
+  margin-right: 18px;
+}
+
+/* paddind classes */
+.p-0 {
+  padding: 0px;
+}
+.p-t-5 {
+  padding-top: 5px;
+}
+.p-t-10 {
+  padding-top: 10px;
+}
+.p-t-20 {
+  padding-top: 20px;
+}
+.p-t-0 {
+  padding-top: 0px;
+}
+.p-b-0 {
+  padding-bottom: 0px;
+}
+.p-l-10 {
+  padding-left: 10px;
+}
+.p-l-15 {
+  padding-left: 15px;
+}
+.p-l-25 {
+  padding-left: 25px;
+}
+.p-b-45 {
+  padding-bottom: 45px;
+}
+.p-l-0 {
+  padding-left: 0px;
+}
+.p-r-0 {
+  padding-right: 0px;
+}
+.txt-para {
+  text-align: justify;
+  text-transform: capitalize;
+  text-indent: 50px;
+}
+
+.blink {
+  animation: blink 1s steps(5, start) infinite;
+  -webkit-animation: blink 2s steps(5, start) infinite;
+}
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}

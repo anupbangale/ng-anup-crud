@@ -1,0 +1,134 @@
+<div>
+  <div class="ui-g-12 ui-md-12 ui-lg-12 p-t-20">
+    <span class="heading-text">Assets in a Company.</span>
+  </div>
+
+  <!-- form -->
+  <div class="ui-g-12 ui-md-12 ui-lg-12">
+    <p-fieldset legend="Add new Asset">
+      <form [formGroup]="assetsForm">
+        <div class="ui-lg-2 ui-md-12 ui-g-12">
+          <div class="ui-lg-12 ui-md-12 ui-g-12 p-b-0">
+            <label class=" txt-style">Asset Name
+              <font class="validation-red">*</font>
+            </label>
+          </div>
+          <div class="ui-lg-12 ui-md-12 ui-g-12 p-t-0">
+            <input pInputText placeholder="Enter asset's name" formControlName="assetName" [(ngModel)]="asset.name" />
+          </div>
+          <div class="ui-lg-12 ui-md-12 ui-g-12 validation-red p-t-0">
+            <span *ngIf="!assetsForm.controls['assetName'].valid&&(assetsForm.controls['assetName'].dirty || assetsForm.controls['assetName'].touched)">Please
+              enter asset's name</span>
+          </div>
+        </div>
+        <div class="ui-lg-2 ui-md-12 ui-g-12">
+          <div class="ui-lg-12 ui-md-12 ui-g-12 p-b-0">
+            <label class=" txt-style">Brand Name
+              <font class="validation-red">*</font>
+            </label>
+          </div>
+          <div class="ui-lg-12 ui-md-12 ui-g-12 p-t-0">
+            <input pInputText placeholder="Enter brand name" formControlName="companyName" [(ngModel)]="asset.company" />
+          </div>
+          <div class="ui-lg-12 ui-md-12 ui-g-12 validation-red p-t-0">
+            <span *ngIf="!assetsForm.controls['companyName'].valid&&(assetsForm.controls['companyName'].dirty || assetsForm.controls['companyName'].touched)">Please
+              enter brand name</span>
+          </div>
+        </div>
+        <div class="ui-lg-2 ui-md-12 ui-g-12">
+          <div class="ui-lg-12 ui-md-12 ui-g-12 p-b-0">
+            <label class=" txt-style">No of Items
+              <font class="validation-red">*</font>
+            </label>
+          </div>
+          <div class=" ui-lg-12 ui-md-12 ui-g-12 p-t-0">
+            <input pInputText placeholder="Enter quantity" formControlName="quntity" [(ngModel)]="asset.quantity"
+              (keypress)="onlyNumberKey($event)" />
+          </div>
+          <div class="ui-lg-12 ui-md-12 ui-g-12 validation-red p-t-0">
+            <span *ngIf="!assetsForm.controls['quntity'].valid&&(assetsForm.controls['quntity'].dirty || assetsForm.controls['quntity'].touched)">Please
+              enter quantity(max-9999)</span>
+          </div>
+        </div>
+        <div class="ui-lg-2 ui-md-12 ui-g-12 p-t-0">
+          <br>
+          <div class="ui-g-12 ui-lg-12 ui-md-12" style="padding-top:22px">
+            <span>
+              <button pButton type="button" (click)="onAddAsset()" label="Add" class="ui-button-raised" [disabled]='assetsForm.invalid'></button>
+            </span>
+            <span class="p-l-25">
+              <button pButton type="reset" label="Clear" class="ui-button-raised"></button>
+            </span>
+          </div>
+        </div>
+      </form>
+    </p-fieldset>
+  </div>
+
+  <!-- table -->
+  <div class="ui-g-12 ui-lg-12 ui-md-12 p-b-45">
+    <h2 class="table-heading">List of all available Assets</h2>
+    <p-table [value]="assets">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Serial No. </th>
+          <th>Asset Name</th>
+          <th>Company</th>
+          <th>Quantity</th>
+          <th>Actions</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-asst>
+        <tr>
+          <td>
+            <div>
+              {{asst.serialNo}}.
+            </div>
+          </td>
+          <td>
+            <div *ngIf="!asst.isEdit">
+              {{asst.name}}
+            </div>
+            <div *ngIf="asst.isEdit">
+              <input pInputText [(ngModel)]="asst.name" />
+            </div>
+          </td>
+          <td>
+            <div *ngIf="!asst.isEdit">
+              {{asst.company}}
+            </div>
+            <div *ngIf="asst.isEdit">
+              <input pInputText [(ngModel)]="asst.company" />
+            </div>
+          </td>
+          <td>
+            <div *ngIf="!asst.isEdit">
+              {{asst.quantity}}
+            </div>
+            <div *ngIf="asst.isEdit">
+              <input pInputText [(ngModel)]="asst.quantity" maxlength="4" (keypress)="onlyNumberKey($event)" />
+            </div>
+          </td>
+          <td>
+            <div *ngIf="!asst.isEdit">
+              <span (click)="onEditClick(asst)" class="p-l-15">
+                <i class="fa fa-pencil fa-1x pointer" style="color:green" aria-hidden="true"></i>
+              </span>
+              <span (click)="onDeleteClick(asst)" class="p-l-25">
+                <i class="fa fa-trash fa-1x pointer" style="color:red" aria-hidden="true"></i>
+              </span>
+            </div>
+            <div *ngIf="asst.isEdit">
+              <span (click)="onUpdateClick(asst)" class="p-l-15">
+                <i class="fa fa-check fa-1x pointer" style="color:green" aria-hidden="true"></i>
+              </span>
+              <span (click)="onCloseClick(asst)" class="p-l-25">
+                <i class="fa fa-times fa-1x pointer" style="color:red" aria-hidden="true"></i>
+              </span>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

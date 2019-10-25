@@ -1,0 +1,19 @@
+.header {
+  overflow: hidden;
+  background-color: #087dd5;
+  padding-left: 10px;
+  padding-top: 10px;
+  /* margin-left: 20px; */
+  /* margin-right: 18px; */
+  /* width: 98%; */
+}
+.company-title {
+  /* padding-left: 20px; */
+  font-size: 4em;
+  font-family: "Times New Roman", Times, serif;
+  color: #ffffff;
+}
+.txt-addrs {
+  margin: 8px;
+  color: aliceblue;
+}
