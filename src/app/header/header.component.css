@@ -8,12 +8,15 @@
   /* width: 98%; */
 }
 .company-title {
-  /* padding-left: 20px; */
-  font-size: 4em;
-  font-family: "Times New Roman", Times, serif;
+  margin-left: 20px;
+  font-size: 2em;
+  font-family: 'Times New Roman', Times, serif;
   color: #ffffff;
 }
 .txt-addrs {
   margin: 8px;
   color: aliceblue;
+}
+.logo-image {
+  height: 60px;
 }
