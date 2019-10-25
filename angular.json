@@ -26,7 +26,8 @@
               "node_modules/primeicons/primeicons.css",
               "node_modules/primeng/resources/themes/nova-light/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
-              "src/assets/styles.css"
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "src/assets/styles.scss"
             ],
             "scripts": []
           },
@@ -126,5 +127,10 @@
       }
     }
   },
-  "defaultProject": "EmployeeManagement"
+  "defaultProject": "EmployeeManagement",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
