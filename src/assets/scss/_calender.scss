@@ -1,0 +1,36 @@
+.ui-datepicker select.ui-datepicker-month {
+  background-color: #fff !important;
+  height: 32px;
+  font-family: 'Font_Regular' !important;
+}
+
+.ui-datepicker select.ui-datepicker-year {
+  background-color: #fff !important;
+  height: 32px;
+  font-family: 'Font_Regular' !important;
+}
+.ui-datepicker .ui-datepicker-header a {
+  margin-top: 5px;
+}
+
+//Changing saturday and sunday dates colors
+.ui-datepicker table tr td:first-child + td + td + td + td + td + td {
+  a {
+    color: red !important;
+  }
+}
+.ui-datepicker table tr td:first-child {
+  a {
+    color: red !important;
+  }
+}
+.ui-datepicker.ui-widget {
+  z-index: 99999 !important;
+}
+.ui-datepicker td {
+  cursor: pointer !important;
+}
+.ui-calendar.ui-calendar-w-btn input {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}

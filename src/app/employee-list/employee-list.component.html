@@ -1,7 +1,8 @@
 <div class="ui-g-12 ui-lg-12 ui-md-12">
   <div class="ui-g-12 ui-lg-12 ui-md-12">
     <span class="heading-text">Click to register new Employee.</span>
-    <span><i class="fa fa-hand-o-right fa-2x blink" style="padding-left:10px;padding-right:10px" aria-hidden="true"></i></span>
+    <span><i class="fa fa-hand-o-right fa-2x blink" style="padding-left:10px;padding-right:10px"
+        aria-hidden="true"></i></span>
     <span class="p-l-15">
       <button pButton type="button" (click)="onRegisterClick()" label="Register" class="ui-button-raised"></button>
     </span>
@@ -12,7 +13,7 @@
   <p-table [value]="employees">
     <ng-template pTemplate="header">
       <tr>
-        <th>Employee Id </th>
+        <th>Employee Id</th>
         <th>Employee Name</th>
         <th>Mobile</th>
         <th>Department</th>
@@ -39,13 +40,17 @@
     </ng-template>
   </p-table>
 </div>
-<p-dialog [(visible)]="display" [modal]="true" [responsive]="true" [width]="600" [minWidth]="200" [minY]="70"
-  [maximizable]="true" [baseZIndex]="10000">
+<p-dialog [(visible)]="display" [modal]="true" [responsive]="true" [minWidth]="200" [minY]="70"
+  [style]="{width: '600px','height':'auto'}" [maximizable]="true" [baseZIndex]="10000">
   <p-header>
     <span class="dialog-heading"> New Employee Registration</span>
-    <span class="txt-right pointer" (click)="close()">
-      <i class="fa fa-times p-t-5 p-l-15" style="color:#7f8ea5" aria-hidden="true"></i>
-    </span>
+    <!-- <span class="txt-right pointer" (click)="close()">
+      <i
+        class="fa fa-times p-t-5 p-l-15"
+        style="color:#7f8ea5"
+        aria-hidden="true"
+      ></i>
+    </span> -->
   </p-header>
   <div class="ui-g-12">
     <form [formGroup]="registrationForm">
@@ -61,7 +66,8 @@
               autofocus />
           </div>
           <div class="ui-g-12 p-t-0 p-b-0 validation-red">
-            <span *ngIf="!registrationForm.controls['empName'].valid&&(registrationForm.controls['empName'].dirty || registrationForm.controls['empName'].touched)">Please
+            <span
+              *ngIf="!registrationForm.controls['empName'].valid&&(registrationForm.controls['empName'].dirty || registrationForm.controls['empName'].touched)">Please
               enter employee's name</span>
           </div>
         </div>
@@ -78,7 +84,8 @@
               (keypress)="onlyNumberKey($event)" maxlength="10" />
           </div>
           <div class="ui-g-12 p-t-0 p-b-0 validation-red">
-            <span *ngIf="!registrationForm.controls['mob'].valid&&(registrationForm.controls['mob'].dirty || registrationForm.controls['mob'].touched)">Please
+            <span
+              *ngIf="!registrationForm.controls['mob'].valid&&(registrationForm.controls['mob'].dirty || registrationForm.controls['mob'].touched)">Please
               enter employee's mobile no</span>
           </div>
         </div>
@@ -91,11 +98,12 @@
         </div>
         <div class="ui-g-6 p-t-0">
           <div class="ui-g-12">
-            <p-dropdown [options]="departments" [(ngModel)]="employee.department" formControlName="dept" placeholder="Select a Department"
-              [showClear]="true"></p-dropdown>
+            <p-dropdown [options]="departments" [(ngModel)]="employee.department" formControlName="dept"
+              placeholder="Select a Department" [showClear]="true"></p-dropdown>
           </div>
           <div class="ui-g-12 p-t-0 p-b-0 validation-red">
-            <span *ngIf="!registrationForm.controls['dept'].valid&&(registrationForm.controls['dept'].dirty || registrationForm.controls['dept'].touched)">Please
+            <span
+              *ngIf="!registrationForm.controls['dept'].valid&&(registrationForm.controls['dept'].dirty || registrationForm.controls['dept'].touched)">Please
               select department</span>
           </div>
         </div>
@@ -108,10 +116,13 @@
         </div>
         <div class="ui-g-6 p-t-0">
           <div class="ui-g-12">
-            <p-calendar [(ngModel)]="employee.dateOfJoin" placeholder="Select a Date" formControlName="doj"></p-calendar>
+            <p-calendar appendTo='p-dialog' [(ngModel)]="employee.dateOfJoin" placeholder="Select a Date"
+              formControlName="doj">
+            </p-calendar>
           </div>
           <div class="ui-g-12 p-t-0 p-b-0  validation-red">
-            <span *ngIf="!registrationForm.controls['doj'].valid&&(registrationForm.controls['doj'].dirty || registrationForm.controls['doj'].touched)">Please
+            <span
+              *ngIf="!registrationForm.controls['doj'].valid&&(registrationForm.controls['doj'].dirty || registrationForm.controls['doj'].touched)">Please
               select date</span>
           </div>
         </div>
@@ -119,8 +130,8 @@
     </form>
   </div>
   <p-footer>
-    <button pButton type="button" label="{{ buttonLable }}" (click)="registerEmployee()" class="ui-button-raised ui-button-success"
-      [disabled]='registrationForm.invalid'></button>
+    <button pButton type="button" label="{{ buttonLable }}" (click)="registerEmployee()"
+      class="ui-button-raised ui-button-success" [disabled]="registrationForm.invalid"></button>
     <button pButton type="button" label="Close" (click)="close()" class="ui-button-danger m-l-10"></button>
   </p-footer>
 </p-dialog>
