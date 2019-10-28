@@ -17,7 +17,8 @@
             <input pInputText placeholder="Enter asset's name" formControlName="assetName" [(ngModel)]="asset.name" />
           </div>
           <div class="ui-lg-12 ui-md-12 ui-g-12 validation-red p-t-0">
-            <span *ngIf="!assetsForm.controls['assetName'].valid&&(assetsForm.controls['assetName'].dirty || assetsForm.controls['assetName'].touched)">Please
+            <span
+              *ngIf="!assetsForm.controls['assetName'].valid&&(assetsForm.controls['assetName'].dirty || assetsForm.controls['assetName'].touched)">Please
               enter asset's name</span>
           </div>
         </div>
@@ -28,10 +29,12 @@
             </label>
           </div>
           <div class="ui-lg-12 ui-md-12 ui-g-12 p-t-0">
-            <input pInputText placeholder="Enter brand name" formControlName="companyName" [(ngModel)]="asset.company" />
+            <input pInputText placeholder="Enter brand name" formControlName="companyName"
+              [(ngModel)]="asset.company" />
           </div>
           <div class="ui-lg-12 ui-md-12 ui-g-12 validation-red p-t-0">
-            <span *ngIf="!assetsForm.controls['companyName'].valid&&(assetsForm.controls['companyName'].dirty || assetsForm.controls['companyName'].touched)">Please
+            <span
+              *ngIf="!assetsForm.controls['companyName'].valid&&(assetsForm.controls['companyName'].dirty || assetsForm.controls['companyName'].touched)">Please
               enter brand name</span>
           </div>
         </div>
@@ -46,7 +49,8 @@
               (keypress)="onlyNumberKey($event)" />
           </div>
           <div class="ui-lg-12 ui-md-12 ui-g-12 validation-red p-t-0">
-            <span *ngIf="!assetsForm.controls['quntity'].valid&&(assetsForm.controls['quntity'].dirty || assetsForm.controls['quntity'].touched)">Please
+            <span
+              *ngIf="!assetsForm.controls['quntity'].valid&&(assetsForm.controls['quntity'].dirty || assetsForm.controls['quntity'].touched)">Please
               enter quantity(max-9999)</span>
           </div>
         </div>
@@ -54,7 +58,8 @@
           <br>
           <div class="ui-g-12 ui-lg-12 ui-md-12" style="padding-top:22px">
             <span>
-              <button pButton type="button" (click)="onAddAsset()" label="Add" class="ui-button-raised" [disabled]='assetsForm.invalid'></button>
+              <button pButton type="button" (click)="onAddAsset()" label="Add" class="ui-button-raised"
+                [disabled]='assetsForm.invalid'></button>
             </span>
             <span class="p-l-25">
               <button pButton type="reset" label="Clear" class="ui-button-raised"></button>

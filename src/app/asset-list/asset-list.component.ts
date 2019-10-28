@@ -14,7 +14,7 @@ export class AssetListComponent implements OnInit {
   assetsForm: FormGroup;
   asset: Asset;
   tempAsset: Asset;
-  i: number = 1;
+  i = 1;
 
   constructor(
     private assetService: AssetService,
@@ -44,19 +44,19 @@ export class AssetListComponent implements OnInit {
     });
   }
 
-  onEditClick(asst) {
+  onEditClick(asst: Asset) {
     this.tempAsset = { ...asst };
     asst.isEdit = true;
     console.log('tempAsset--edit', this.tempAsset);
 
   }
-  onUpdateClick(asst) {
+  onUpdateClick(asst: Asset) {
     asst.isEdit = false;
     this.asset = { ...asst };
     this.loadAsset();
     this.showUpdateTost();
   }
-  onDeleteClick(asst) {
+  onDeleteClick(asst: Asset) {
     const index = this.assets.indexOf(asst);
     this.confirmationService.confirm({
       message: 'Do you want to delete this record?',
@@ -71,17 +71,17 @@ export class AssetListComponent implements OnInit {
       }
     });
   }
-  onCloseClick(asst) {
+  onCloseClick(asst: { company: string; isEdit: boolean; name: string; quantity: number; serialNo: number; }) {
     asst.company = this.tempAsset.company;
     asst.isEdit = this.tempAsset.isEdit;
     asst.name = this.tempAsset.name;
     asst.quantity = this.tempAsset.quantity;
     asst.serialNo = this.asset.serialNo;
-    this.asset = { ...this.tempAsset };
+    // this.asset = { ...this.tempAsset };
     this.showInfoTost();
   }
   onAddAsset() {
-    let num = 4 + this.i;
+    const num = 4 + this.i;
     this.asset.serialNo = num;
     this.assetService.saveAsset(this.asset);
     this.showAddTost();
@@ -106,7 +106,7 @@ export class AssetListComponent implements OnInit {
     this.messageService.add({ severity: 'warn', summary: 'Info', detail: 'You rejected.' });
   }
 
-  onlyNumberKey(event) {
-    return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <= 57;
+  onlyNumberKey(event: { charCode: number; }) {
+    return (event.charCode === 8 || event.charCode === 0) ? null : event.charCode >= 48 && event.charCode <= 57;
   }
 }
