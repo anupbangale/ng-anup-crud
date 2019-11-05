@@ -37,6 +37,39 @@ import { fakeBackendProvider } from './helpers/fake-backend';
 import { AuthGuard } from './services/auth-guard.service';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
+const routs = [
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'employee',
+    component: EmployeeListComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'asset',
+    component: AssetListComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'about',
+    component: AboutUsComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
+  },
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,38 +99,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
     FieldsetModule,
     GalleriaModule,
     CardModule,
-    RouterModule.forRoot([
-      {
-        path: '',
-        component: HomeComponent
-      },
-      {
-        path: 'home',
-        component: HomeComponent
-      },
-      {
-        path: 'employee',
-        component: EmployeeListComponent,
-        canActivate: [AuthGuard]
-      },
-      {
-        path: 'asset',
-        component: AssetListComponent,
-        canActivate: [AuthGuard]
-      },
-      {
-        path: 'about',
-        component: AboutUsComponent
-      },
-      {
-        path: 'login',
-        component: LoginComponent
-      },
-      {
-        path: '**',
-        component: NotFoundComponent
-      },
-    ])
+    RouterModule.forRoot(routs, { useHash: true })
   ],
   providers: [
     MessageService,

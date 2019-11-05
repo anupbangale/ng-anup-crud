@@ -12,7 +12,7 @@ export class LoginComponent {
 
   invalidLogin: boolean;
   isShowPassword = false;
-  textType = "password"
+  textType = 'password';
 
   constructor(
     private router: Router,
@@ -24,20 +24,20 @@ export class LoginComponent {
     this.authService.login(credentials)
       .subscribe(result => {
         if (result) {
-          let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+          const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
           this.router.navigate([returnUrl || '/']);
-        }
-        else
+        } else {
           this.invalidLogin = true;
+        }
       });
   }
 
   showPassWord() {
-    this.textType = "text";
+    this.textType = 'text';
     this.isShowPassword = !this.isShowPassword;
   }
   hidePassword() {
-    this.textType = "password";
+    this.textType = 'password';
     this.isShowPassword = !this.isShowPassword;
   }
 

@@ -17,7 +17,7 @@ export class AuthService {
       JSON.stringify(credentials))
       .map(response => {
         // console.log(response.json());
-        let result = response.json();
+        const result = response.json();
         if (result && result.token) {
           localStorage.setItem('token', result.token);
           return true;
@@ -46,9 +46,9 @@ export class AuthService {
     // return !isExpired;
   }
 
-  get currentUser(){
-    let token =localStorage.getItem('token');
-    if(!token) return 'null';
+  get currentUser() {
+    const token = localStorage.getItem('token');
+    if (!token) { return 'null'; }
     return new JwtHelper().decodeToken(token);
 
   }
